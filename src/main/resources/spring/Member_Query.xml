@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper	namespace="com.board.dao.MemberDAO">
+	<select id="searchAllMember"	resultType="member">
+		select * from MEMBER;
+	</select>
+	
+	<select id="searchMember" parameterType="string" resultType="member">
+		select * from MEMBER where id=#{id}
+	</select>
+	
+	<insert id="addMember" parameterType="member">
+		INSERT INTO MEMBER(isAdmin, id, password, name, nickname) 
+		VALUES(false, #{id}, #{password}, #{name}, #{nickname});
+	</insert>
+	 
+	<!-- <insert id="addBoard"	parameterType="board" useGeneratedKeys="true" keyProperty="num">
+		insert into sfboard (id, title, context, reg_date)
+		values(#{id}, #{title}, #{context}, sysdate())
+	</insert>
+	 
+	 <delete id="deleteBoard"	parameterType="int">
+	 	delete from sfboard where num=#{num}
+	 </delete>
+	 
+	 <update id="updateBoard"	parameterType="board">
+		update sfboard set	id=#{id} 
+												 name=#{name}
+												title=#{title},
+									 			context=#{context}
+		where num=#{num}	
+	</update>
+	 
+	<select id="findAllBoard"	resultType="board">
+		select num, id, title, context, reg_date
+		from sfboard
+	</select>
+	
+	<select id="findBoardByNum"	parameterType="int"	resultType="board">
+		select *
+		from sfboard
+		where num=#{num}
+	</select>
+	
+	<select id="findBoardByTitle"	parameterType="string"	resultType="board">
+		select *
+		from sfboard
+		where title like concat("%",#{title},"%")
+	</select>
+	
+	<select id="findBoardById"	parameterType="string"	resultType="board">
+		select *
+		from sfboard
+		where id=#{id}
+	</select> -->
+	
+	
+</mapper>
